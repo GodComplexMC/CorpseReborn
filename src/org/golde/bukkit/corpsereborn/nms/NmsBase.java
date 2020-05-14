@@ -3,6 +3,7 @@ package org.golde.bukkit.corpsereborn.nms;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -99,7 +100,7 @@ public abstract class NmsBase {
 		@SuppressWarnings("unchecked")
 		LivingEntity slime = (LivingEntity) loc.getWorld().spawn(loc, ENTITY_CLASS);
 		slime.teleport(loc);
-		slime.setCustomName("CRHitbox");
+		slime.setCustomName(ChatColor.WHITE + "");
 		slime.setCustomNameVisible(false);
 		try{
 			applyPotion(slime);

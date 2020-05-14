@@ -3,29 +3,27 @@ package org.golde.bukkit.corpsereborn.nms.nmsclasses.packetlisteners;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-
-import java.lang.reflect.Field;
-
-import net.minecraft.server.v1_14_R1.NetworkManager;
-import net.minecraft.server.v1_14_R1.PacketPlayInUseEntity;
-import net.minecraft.server.v1_14_R1.PacketPlayInUseEntity.EnumEntityUseAction;
-
+import net.minecraft.server.v1_15_R1.NetworkManager;
+import net.minecraft.server.v1_15_R1.PacketPlayInUseEntity;
+import net.minecraft.server.v1_15_R1.PacketPlayInUseEntity.EnumEntityUseAction;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_15_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.InventoryView;
 import org.golde.bukkit.corpsereborn.ConfigData;
+import org.golde.bukkit.corpsereborn.CorpseAPI.events.CorpseClickEvent;
 import org.golde.bukkit.corpsereborn.Main;
 import org.golde.bukkit.corpsereborn.Util;
-import org.golde.bukkit.corpsereborn.CorpseAPI.events.CorpseClickEvent;
 import org.golde.bukkit.corpsereborn.nms.Corpses.CorpseData;
 import org.golde.bukkit.corpsereborn.nms.TypeOfClick;
 
-public class PcktIn_v1_14_R1 extends ChannelInboundHandlerAdapter {
+import java.lang.reflect.Field;
+
+public class PcktIn_v1_15_R1 extends ChannelInboundHandlerAdapter {
 
 	private Player p;
 
-	public PcktIn_v1_14_R1(Player p) {
+	public PcktIn_v1_15_R1(Player p) {
 		this.p = p;
 	}
 
@@ -79,7 +77,7 @@ public class PcktIn_v1_14_R1 extends ChannelInboundHandlerAdapter {
 			throw new NullPointerException("Couldn't get channel??");
 		}
 		c.pipeline().addBefore("packet_handler", "packet_in_listener",
-				new PcktIn_v1_14_R1(p));
+				new PcktIn_v1_15_R1(p));
 	}
 
 	public static final Channel getChannel(Player p) {
